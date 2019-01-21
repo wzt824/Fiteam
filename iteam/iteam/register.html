@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/register.css"/>
+	<body>
+		<div class="register">
+			<div class="logo">
+				<img src="img/headerCenter.png"/>
+				<h3>欢迎注册</h3>
+			</div>
+		</div>
+		<div class="content">
+			<div class="w990">
+				<div class="reg_con">
+					<div class="reg_top">
+						<ul>
+							<li><a href="#">手机注册</a></li>
+							<li><a href="#">邮箱注册</a></li>
+						</ul>
+						<p class="over">我已经注册，现在就 <a href="login.html">登录</a></p>
+					</div>
+					<!--手机注册部分-->
+					<div class="reg_wrap phone">
+						<div class="reg_wrap_con">
+							<!-- <div class="reg_right"></div> -->
+							<form>
+								<div class="reg_form">
+									<label for="" class="info" name="userName">
+										<span>*</span>
+										<span>手机号：</span>
+									</label>
+									<div class="reg_input">
+										<input type="text" id="userNameId">
+										<p id="userNameP"></p>
+									</div>
+								</div>
+								<div class="reg_form">
+									<label for="" class="info" name="pass">
+										<span>*</span>
+										<span>密码：</span>
+									</label>
+									<div class="reg_input">
+										<input type="password" class="psId" id="passwordId">
+										<p class="passP"></p>
+									</div>
+								</div>
+								<div class="reg_form">
+									<label for="" class="info" name="reg">
+										<span>*</span>
+										<span>验证码：</span>
+									</label>
+									<div class="reg_input differ">
+										<input type="text" class="regId" id = "input">
+										<input type = "button" id="code" onclick="createCode()"/>
+										<p class="yanP"></p>
+									</div>
+								</div>
+								<div class="reg_form">
+									<label for="" class="info" name="message">
+										<span>*</span>
+										<span>短信校验码：</span>
+									</label>
+									<div class="reg_input differ">
+										<input type="text" class="messageId">
+										<a href="#">获取短信校验码</a>
+										<p class="messageP"></p>
+									</div>
+								</div>
+								<div class="reg_form">
+									<label for="" class="info" name="registerName">
+										<span>*</span>
+										<span>注册邀请码：</span>
+									</label>
+									<div class="reg_input differ">
+										<input type="text" id="registerId">
+										<span>(选填)</span>
+										<p class="regP"></p>
+									</div>
+								</div>
+								<div class="reg_form only">
+									<label for="">
+										<span>&nbsp;</span>
+									</label>
+									<div class="reg_input agree">
+										<input type="checkbox" />
+										<span>我已阅读并同意<a href="#">《用户注册协议》</a></span>	
+										<p id="tishi"></p>
+									</div>
+								</div>
+								<div class="reg_form ">
+									<label for="">
+										<span></span>
+										<span></span>
+									</label>
+									<div class="reg_input sub">
+										<input type="button" value="同意协议并注册" id="btn" onclick="validate()" />
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!--邮箱注册部分-->
+					<div class="reg_wrap email">
+						<div class="reg_wrap_con">
+							<div class="reg_right"></div>
+							<form action="regSave.php" method="post">
+								<div class="reg_form">
+									<label for="" class="info" name="youxiang">
+										<span>*</span>
+										<span>邮箱：</span>
+									</label>
+									<div class="reg_input">
+										<input type="text" id="emailId">
+										<p id="emailP"></p>
+									</div>
+								</div>
+								<div class="reg_form">
+									<label for="" class="info" name="pass">
+										<span>*</span>
+										<span>密码：</span>
+									</label>
+									<div class="reg_input">
+										<input type="password" class="psId" id="psaaId">
+										<p class="passP"></p>
+									</div>
+								</div>
+								<div class="reg_form">
+									<label for="" name="reg">
+										<span>*</span>
+										<span>验证码：</span>
+									</label>
+									<div class="reg_input differ">
+										<input type="text" class="regId">
+										<p class="yanP"></p>
+									</div>
+								</div>
+								<div class="reg_form">
+									<label for="" name="message">
+										<span>*</span>
+										<span>邮箱校验码：</span>
+									</label>
+									<div class="reg_input differ">
+										<input type="text" class="messageId">
+										<a href="#">获取短信校验码</a>
+										<p class="messageP"></p>
+									</div>
+								</div>
+								<div class="reg_form">
+									<label for="" name="registerName">
+										<span>*</span>
+										<span>注册邀请码：</span>
+									</label>
+									<div class="reg_input differ">
+										<input type="text" class="registerId">
+										<span>(选填)</span>
+										<p class="regP"></p>
+									</div>
+								</div>
+								<div class="only">
+									<label for="">
+										<span></span>
+										<span></span>
+									</label>
+									<div class="reg_input agree">
+										<input type="checkbox" />
+										<span>我已阅读并同意<a href="#">《用户注册协议》</a>
+										<p id="tip"></p></span>
+									</div>
+								</div>
+								<div class="reg_form ">
+									<label for="">
+										<span></span>
+										<span></span>
+									</label>
+									<div class="reg_input sub">
+										<input type="button" value="同意协议并注册" id="subm"/>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--footer部分-->
+		<div class="footer">
+			<div class="footer_center">
+				<p>上海悦目化妆品有限公司©2005-2015版权所有<span>沪ICP备16019821号</span> </p>
+				<a href="#">提供技术支持</a>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="js/function.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script><!-- 
+<script src="js/reg.js" type="text/javascript" charset="utf-8"></script> -->
+<script type="text/javascript">
+	$(function(){
+		$(".reg_top ul li:nth-of-type(1)").click(function(){
+			$(this).css({
+				background:"white",
+    			color:"#e31939" ,
+    			border:"1px solid #e31939",
+    			borderBottom: "none"
+			});
+			$(".reg_top ul li:nth-of-type(1) a").css({color:"#e31939"});
+			$(".reg_top ul li:nth-of-type(2) a").css({color:"#666"});
+			$(".reg_top ul li:nth-of-type(2)").css({
+				background:"#f8f8f8",
+    			color:"#666" ,
+    			border:"1px solid #f8f8f8"
+			});
+			$(".phone").css({display:"block"});
+			$(".email").css({display:"none"});
+		});
+		$(".reg_top ul li:nth-of-type(2)").click(function(){
+			$(this).css({
+				background:"white",
+    			color:"#e31939" ,
+    			border:"1px solid #e31939",
+    			borderBottom: "none"
+			});
+			$(".reg_top ul li:nth-of-type(1)").css({
+				background:"#f8f8f8",
+    			color:"#666" ,
+    			border:"1px solid #f8f8f8"
+				});
+			$(".reg_top ul li:nth-of-type(1) a").css({color:"#666"});
+			$(".reg_top ul li:nth-of-type(2) a").css({color:"#e31939"});
+			$(".phone").css({display:"none"});
+			$(".email").css({display:"block"});
+		});
+
+		//正则验证
+
+		//定义变量用来验证正则是否全部输入正确
+        let verify = false;
+        //用户名正则检验
+        $("#userNameId").keyup(function(){
+           verifyUserName(); 
+        });
+        function verifyUserName(){
+            var pattern = /^1[3|4|5|8][\d]{9}$/;   
+            var str = pattern.test($("#userNameId").val());
+            if(str){
+                $("#userNameP").html(" ");
+                verify = true;
+            }else{
+                $("#userNameP").html("手机号为13/14/15/18开头，限制为11位");
+                $("#userNameP").css({color:"red"});
+                verify = false;
+            }
+            return str;
+        }
+        //密码正则检验
+        $("#passwordId").keyup(function(){
+           verifypassWord(); 
+        });
+        function verifypassWord(){
+            var pattern = /^[a-zA-Z]\w{5,15}$/;   
+            var str = pattern.test($("#passwordId").val());
+            if(str){
+                $(".passP").html(" ");
+                verify = true;
+            }else{
+                $(".passP").html("密码长度为6-16位,限制为字母开头，只能包含字母，数字，下划线");
+                $(".passP").css({color:"red"});
+                verify = false;
+            }
+            return str;
+        }
+        //注册邀请码正则检验
+        $("#registerId").keyup(function(){
+           verifyY(); 
+        });
+        function verifyY(){
+            var pattern = /^[\d]{4,5}$/;   
+            var str = pattern.test($("#registerId").val());
+            if(str){
+                $(".regP").html(" ");
+                $(".regP").css({color:"green"});
+                verify = true;
+            }else{
+                $(".regP").html("邀请码为4-5位数字");
+                $(".regP").css({color:"red"});
+                verify = false;
+            }
+            return str;
+        }
+
+	//手机号注册验证
+	$("#btn").click(function(){
+		if(verify && verifyUserName() &&verifypassWord() && verifyY()){
+			let xhr = new XMLHttpRequest();
+			xhr.open("post","regSave.php",true);
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4 && xhr.status==200){
+					let str= xhr.responseText;
+					if(str=="-1"){
+						$("#tishi").css({"display":"block"});
+						$("#tishi").html("注册失败，用户名已存在!");
+					}
+					if(str=="1"){
+						$("#tishi").css({"display":"block"});
+						$("#tishi").html("注册成功,右上角点击登录快去登录吧！");
+					}		
+				}
+			}
+			xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			let str="username="+$("#userNameId").val()+"&userpass="+$("#passwordId").val();
+			xhr.send(str);
+		}else{
+			return false;
+		}
+	});
+	//邮箱验证
+	$("#subm").click(function(){
+		//console.log(123);
+		let xhr = new XMLHttpRequest();
+		xhr.open("post","regSave.php",true);
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4 && xhr.status==200){
+				let str= xhr.responseText;
+				if(str=="1"){
+					$("#tip").css({"display":"block"});
+					$("#tip").html("注册失败，用户名已存在!");
+				}
+				if(str=="-1"){
+					$("#tip").css({"display":"block"});
+					$("#tip").html("注册成功!");
+				}		
+			}
+		}
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		let str="username="+$("#userNameId").val()+"&userpass="+$("#passwordId").val();
+		xhr.send(str);
+	});
+	})
+
+createCode();
+//验证码
+	var code ; //在全局定义验证码 
+			//产生验证码
+	function createCode(){
+		 code = ""; 
+		 var codeLength = 4;//验证码的长度
+		 var checkCode = document.getElementById("code"); 
+		 var random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',
+		 'S','T','U','V','W','X','Y','Z');//随机数
+		 for(var i = 0; i < codeLength; i++) {//循环操作
+			var index = Math.floor(Math.random()*36);//取得随机数的索引（0~35）
+			code += random[index];//根据索引取得随机数加到code上
+		}
+			checkCode.value = code;//把code值赋给验证码
+	}
+
+	
+			//校验验证码
+	function validate(){
+		var inputCode = document.getElementById("input").value.toUpperCase(); //取得输入的验证码并转化为大写      
+		if(inputCode.length <= 0) { //若输入的验证码长度为0
+			alert("请输入验证码！"); //则弹出请输入验证码
+		}else if(inputCode != code ) { //若输入的验证码与产生的验证码不一致时
+			alert("验证码输入错误"); //则弹出验证码输入错误
+			createCode();//刷新验证码
+			document.getElementById("input").value = "";//清空文本框
+		}else { //输入正确时
+			alert("^-^"); //弹出^-^
+		} 
+	}
+	
+</script>

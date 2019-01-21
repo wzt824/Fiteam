@@ -1,0 +1,213 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/login.css"/>
+	<body>
+		<div class="register">
+			<div class="logo">
+				<img src="img/headerCenter.png"/>
+				<h3>欢迎登录</h3>
+			</div>
+		</div>
+		<div class="content">
+			<div class="w990">
+				<div class="login">
+					<div class="login_con">
+						<div class="login_erweima"></div>
+						<div class="login_wrap">
+							<div class="login_top">
+								<span>还没有账号？</span>
+								<a href="register.html">立即注册 ></a>
+							</div>
+							<div class="login_down">
+								<ul>
+									<li><a href="#">普通登录</a></li>
+									<li><a href="#">动态密码登录</a></li>
+								</ul>
+								<form >
+									<!--普通登录-->
+									<div class="login_form phone">
+										<div class="all">
+											<input type="text" placeholder="已验证手机/邮箱/用户名" name="userName"  id="usernameId"/>
+											<p id="usernameP"></p>
+										</div>
+										<div class="all">
+											<input type="password" placeholder="密码" name="passwordName" id="passwordId" />
+											<p id="passwordP"></p>
+										</div>
+										
+										<div class="submit">
+											<input type="checkbox" class="free" />
+											<a href="javascrpit:;">30天免登录</a>
+											<a href="javascrpit:;">忘记密码？</a>
+										</div>
+										<div class="finish">
+											<input type="button" value="立即登录" id="btn"/>
+											<p id="tishi"></p>
+										</div>
+									</div>
+								</form>
+									<form >
+									<!--动态登录-->
+									<div class="login_form active">
+										<input type="text" placeholder="已注册的手机号码"  /><br><br>
+										<div class="login_yan">
+											<input type="text" placeholder="验证码"   id = "input"/>
+											<input type = "button" id="code" onclick="createCode()"/>
+										</div><br>
+										<div class="login_yan">
+											<input type="text" placeholder="动态密码" />
+											<a href="#">获取手机验证码</a>
+										</div><br>
+										<div class="submit">
+											<input type="checkbox"/>
+											<a href="#">自动登录</a>
+											<a href="#">忘记密码？</a>
+										</div>
+										<div class="finish">
+											<input type="submit" value="立即登录" onclick="validate()"/>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--footer部分-->
+		<div class="footer">
+			<div class="footer_center">
+				<p>上海悦目化妆品有限公司©2005-2015版权所有<span>沪ICP备16019821号</span> </p>
+				<a href="#">提供技术支持</a>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/Cookie.js"></script>
+<script src="js/ajax.js"></script>
+<script>
+	$(function(){
+		$(".login_down ul li:nth-of-type(1)").click(function(){
+			$(".phone").css({display:"block"});
+			$(".active").css({display:"none"});
+			$(this).css({
+				border:"1px solid #e31939",
+				borderBottom:"none"
+			});
+			$(".login_down ul li:nth-of-type(2)").css({
+				border:"none",
+				borderBottom:"1px solid #e31939"
+			});
+		});
+		$(".login_down ul li:nth-of-type(2)").click(function(){
+			$(".phone").css({display:"none"});
+			$(".active").css({display:"block"});
+			$(this).css({
+				border:"1px solid #e31939",
+				borderBottom:"none"
+		});
+			
+			$(".login_down ul li:nth-of-type(1)").css({
+				border:"none",
+				borderBottom:"1px solid #e31939"
+			});
+	});
+
+		//正则验证
+		$('#usernameId').keyup(function(){
+		if(check($(this).val(),"userName")){
+			$('#usernameP').html('');
+			return;
+		}else{
+			$('#usernameP').html('！电话号码格式有误');
+		}
+	});
+	$('#passwordId').keyup(function(){
+		if(check($(this).val(),"passwordName")){
+			$('#passwordP').html('');
+			return;
+		}else{
+			$('#passwordP').html('！密码长度是6-20位字符');
+		}
+	});
+	function check(str,type){
+		switch(type){
+			case 'userName':
+			var pattern=/^[1]\d{10}$/g;
+			break;
+			case 'passwordName':
+			var pattern=/^[0-9][\w]+[\w-]{6,20}$/g;
+		}
+		return pattern.test(str);
+	}
+
+	//cookie免登录
+	if(".free"){
+		$("#btn").click(function(){
+		//保存Cookie
+			setCookie("username",$("#usernameId").val(),100);
+			//跳转到
+			location.href="login-cookie.html";
+		});
+	}
+
+	$("#btn").click(function(){
+		//console.log(123);
+		let xhr=new XMLHttpRequest();
+		xhr.open("post","loginCheck.php",true);
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4 && xhr.status==200){
+				let str= xhr.responseText;
+				if(str=="1"){
+					$("#tishi").css({"display":"block"});
+					$("#tishi").html("登录成功!");
+				}
+				if(str=="-1"){
+					$("#tishi").css({"display":"block"});
+					$("#tishi").html("登录失败，用户名不存在!");
+				}		
+			}
+		}
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		let str="username="+$("#usernameId").val()+"&userpass="+$("#passwordId").val();
+		xhr.send(str);
+	});
+
+});
+	createCode();
+//验证码
+	var code ; //在全局定义验证码 
+			//产生验证码
+	function createCode(){
+		 code = ""; 
+		 var codeLength = 4;//验证码的长度
+		 var checkCode = document.getElementById("code"); 
+		 var random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',
+		 'S','T','U','V','W','X','Y','Z');//随机数
+		 for(var i = 0; i < codeLength; i++) {//循环操作
+			var index = Math.floor(Math.random()*36);//取得随机数的索引（0~35）
+			code += random[index];//根据索引取得随机数加到code上
+		}
+			checkCode.value = code;//把code值赋给验证码
+	}
+			//校验验证码
+	function validate(){
+		var inputCode = document.getElementById("input").value.toUpperCase(); //取得输入的验证码并转化为大写      
+		if(inputCode.length <= 0) { //若输入的验证码长度为0
+			alert("请输入验证码！"); //则弹出请输入验证码
+		}       
+		else if(inputCode != code ) { //若输入的验证码与产生的验证码不一致时
+			alert("验证码输入错误"); //则弹出验证码输入错误
+			createCode();//刷新验证码
+			document.getElementById("input").value = "";//清空文本框
+		}       
+		else { //输入正确时
+			alert("^-^"); //弹出^-^
+		} 
+	}
+</script>

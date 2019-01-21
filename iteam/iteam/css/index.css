@@ -1,0 +1,322 @@
+
+/*banner部分*/
+.banner{
+	clear: both;
+}
+/*text部分*/
+.text{
+	margin-top: 15px;
+	overflow: hidden;
+}
+.list{
+	display: flex;
+	justify-content: space-between;
+}
+.list img{
+	border:0;
+}
+.list li:first-child{
+	width: 236px;
+	height: 155px;
+	margin-right: 8px;
+}
+.list li:first-child div{
+	width: 50%;
+	background: #0e6f3c;
+	text-align: center;
+	float: left;
+}
+.bgLi{
+	position: relative;
+	overflow: hidden;
+}
+.bgSpan{
+	display:inline-block;
+	width: 315px;
+	height: 178px;
+	background-color:skyblue;
+	position: absolute;
+	bottom:-178px;
+	left:0;
+}
+.bgLi:hover .bgSpan{
+	opacity: 0.4;
+	bottom:4px;
+	left: 0;
+	transition: .2s;
+}
+.list li:first-child div:nth-child(2):hover{
+	opacity: 0.8;
+}
+.list li:first-child div:nth-child(3):hover{
+	opacity: 0.8;
+}
+.list li:first-child div:nth-child(4):hover{
+	opacity: 0.8;
+}
+/*productClass部分*/
+.productClass{
+	/*margin-bottom: 50px;*/
+}
+.productClass_top{
+	margin-top: 16px;
+	overflow: hidden;
+	z-index: 1;
+	border-bottom: 1px solid #8ed515;
+}
+.productClass_top h3{
+	color: #13874a;
+	font-size: 18px;
+	float: left;
+	/*font-weight: 100;*/
+	text-indent: 38px;
+}
+.productClass_top_right{
+	float: right;
+	margin-bottom: -2px;
+}
+.productClass_top_right li{
+	float: left;
+	width: 100px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	border:1px solid #f1f1f1;
+	margin-left: 8px;
+	color: #676568;
+	font-size: 12px;
+}
+.productClass_top_right .fix{
+	border:1px solid #8ed515;
+	border-bottom:3px solid white;
+}
+.productClass_footer_left{
+	width: 270px;
+	height: 475px;
+	float: left;
+}
+.productClass_footer_leftS{
+	position: relative;
+}
+.productClass_footer_leftX{
+	position: absolute;
+	bottom: 80px;
+	left: 0;
+}
+.productClass_footer_leftX ul{
+	/*margin-bottom: 80px;*/
+}
+.productClass_footer_leftX li{
+	float: left;
+	margin:0 0 16px 35px;
+	font-size: 14px;
+	/*z-index: 4;*/
+}
+.productClass_footer_leftX li:last-child{
+	text-indent: 30px;
+}
+.productClass_footer_right{
+	float: left;
+	width: 940px;
+}
+.product1{
+	float: left;
+	padding-top: 14px;
+	width: 234px;
+	height: 240px;
+	border-right:1px solid #f1f1f1;
+	border-bottom:1px solid #f1f1f1;
+	text-align: center;
+}
+.product1 img{
+	width: 160px;
+	height: 160px;
+}
+.product1 a{
+	text-align: center;
+	display: inline-block;
+	font-size: 12px;
+	width: 234px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.product1 .product1_shopping a{
+	display: inline;
+}
+.product1_shopping{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+.product1_shopping span{
+	color: #e21939;
+	font-size: 16px;
+	display: inline-block;
+	text-indent: 20px;
+	float: left;
+}
+.product1_shopping img{
+	float: right;
+	padding-right: 20px;
+	vertical-align: middle;
+}
+/*选项卡切换*/
+.one{
+	display: block;
+}
+.two{
+	display: none;
+}
+.three{
+	display: none;
+}
+.four{
+	display: none;
+}
+/*recomend部分*/
+.recomend_list1{
+	width: 230px;
+	height: 304px;
+	border:1px solid #f6f6f6;
+	text-align: center;
+	padding-top: 6px;
+	float: left;
+	margin:0 10px 10px 0;
+}
+.recomend_list1 a{
+	font-size: 12px;
+	display: inline-block;
+}
+.recomend_list1 p{
+	position: relative;
+}
+.recomend_list1 span{
+	position: absolute;
+	bottom:-40px;
+	left:10px;
+	display: inline-block;
+	float: left;
+	color: #e9193b;
+}
+.recomend_list1 p img{
+	display: inline-block;
+	float: right;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	bottom:-50px;
+	right: 8px;
+}
+.recomend_list1:hover{
+	border:1px solid #e9193b;
+	color: #e9193b;
+}
+/*friendship部分*/
+.fs{
+	border:1px solid #eee;
+}
+.friendship{
+	clear: both;
+}
+.friendship p{
+	height: 40px;
+	line-height: 40px;
+	padding-left: 40px;
+	border-bottom: 1px solid #eee;
+}
+.friendship span{
+	display: inline-block;
+	width: 90px;
+	height: 40px;
+	border-bottom: 2px solid #e6425b;
+	color: #e6425b;
+	text-align: center;
+}
+.friendship ul{
+	height: 64px;
+	line-height: 64px;
+	padding-left: 40px;
+}
+.friendship ul li{
+	display: inline-block;
+	padding-right: 34px;
+}
+.friendship ul li a{
+	font-size: 12px;
+	color: #9a9899;
+}
+.friendship ul li a:hover{
+	color: #e6425b;
+}
+/*service部分*/
+.service img{
+	padding-top: 25px;
+}
+/*contact部分*/
+.con{
+	border-top:1px solid #eee;
+}
+.contact_left{
+	float: left;
+}
+.contact_left h3{
+	color: #e21939;
+	font-size: 24px;
+	padding-top: 30px;
+}
+.contact_left p{
+	padding-top: 50px;
+}
+.contact_left p img{
+	vertical-align: middle;
+}
+.contact_right{
+	padding-top: 30px;
+	float: left;
+	margin-bottom: 55px;
+}
+.contact_right h4{
+	font-size: 16px;
+	color: #666762;
+	padding-bottom: 14px;
+}
+.contact_right ul{
+	float: left;
+	padding-left: 100px;
+}
+.contact_right ul li a{
+	display: inline-block;
+	padding-bottom: 8px;
+	color: #9a989d;
+	font-size: 12px;
+}
+.contact_right ul li a:hover{
+	color:#e21a37; 
+}
+/*footer部分*/
+.footer{
+	clear: both;
+	background: #34495e;
+	height: 78px;
+	width: 100%;
+	color: white;
+	text-align: center;
+	font-size: 12px;
+}
+.footer p:first-child{
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+.footer a{
+	color: white;
+}
+.footer p a img{
+	vertical-align: middle;
+}
+.footer .telc{
+	color: #9a9997;
+}
+.hao:hover{
+color:#e21a37;
+}
